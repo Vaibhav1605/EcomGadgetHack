@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
- <title>VAIBHAV.in</title>
+ <title>GadgetHack.in</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,37 +14,15 @@
   
   <c:set var="images" value="${contextPath}/resources/carousel images"/>
   
-  <title>Vaibhav.in</title>
-<style>
-body { 
-    background-image: url('MainBackground.jpg');
-    background-repeat: no-repeat;
-    background-position: 80px 80pxpx; 
-    background-attachment: 
-}
-</style>
-</head>
-<body>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">VAIBHAV.in</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-        
-        </ul>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href=""><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
+  </head>
+  
+  <body>
 
+<jsp:include page="header.jsp"></jsp:include>
+<br>
+<br>
+<br>
+<br>
 
 
 <div class="container">  
@@ -54,19 +33,33 @@ body {
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
+    
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="${images}/Men`s Wear.jpg" alt="Men`s Wear" style="width:100%; margin:20; height:100%;">
+        <img src="${images}/Gadget Hack.jpg" alt="Gadget Hack" style="width:100%;  height:500px;margin:0 auto;">
+        <div class="carousel-caption">
+        <h3>Gadgets</h3>
+        <p>Get everyday Gadgets.!</p>
+        </div>
       </div>
+      
 
       <div class="item">
-        <img src="${images}/Women`s Wear.jpg" alt="Women`s Wear" style="width:100%;margin:20; height:100%;">
+        <img src="${images}/DSLR.jpg" alt="DSLR" style="width:100%; height:500px;margin: 0 auto;">
+        <div class="carousel-caption">
+        <h3>DSLR</h3>
+        <p>Click Ultimate Pictures</p>
+        </div>
       </div>
     
       <div class="item">
-        <img src="${images}/Ethnic Wear.jpg" alt="Ethnic Wear" style="width:100%; margin:20; height:100%;">
+        <img src="${images}/VR Lens.jpg" alt="VR Lens" style="width:100%;height:500px;margin: 0 auto;">
+        <div class="carousel-caption">
+        <h3>VR Lens</h3>
+        <p>Experience Virtual Reality like never before.!</p>
+        </div>
       </div>
     </div>
 

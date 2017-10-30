@@ -15,7 +15,10 @@ public class Customer {
 	private int custId;
 	private String firstName;
 	private String lastName;
+	private String email;
+	private String mobileNumber;
 	private String password;
+	;
 	@Transient
 	private String confirmPassword;
 	public int getcustId() {
@@ -37,6 +40,18 @@ public class Customer {
 	public void setlastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getpassword() {
 		return password;
 	}
@@ -49,5 +64,7 @@ public class Customer {
 	public void setconfrimPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+	
+	
 
 }
