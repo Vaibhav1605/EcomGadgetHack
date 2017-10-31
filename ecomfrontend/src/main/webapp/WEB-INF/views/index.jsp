@@ -12,7 +12,7 @@
   
   <c:set var="contextPath" value="${pageContext.request.contextPath}" />
   
-  <c:set var="images" value="${contextPath}/resources/carousel images"/>
+  <c:set var="images" value="${contextPath}/resources/images"/>
   
   </head>
   
@@ -49,7 +49,7 @@
       <div class="item">
         <img src="${images}/DSLR.jpg" alt="DSLR" style="width:100%; height:500px;margin: 0 auto;">
         <div class="carousel-caption">
-        <h3>DSLR</h3>
+        <h3>DSLR Cameras</h3>
         <p>Click Ultimate Pictures</p>
         </div>
       </div>

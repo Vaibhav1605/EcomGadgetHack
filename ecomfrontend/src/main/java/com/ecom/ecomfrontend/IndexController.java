@@ -41,12 +41,12 @@ public class IndexController {
 	}
 	
 	
-	@RequestMapping("/SignUp")
+	@RequestMapping("/signUp")
 	public ModelAndView product(Model m)
 	{
 		Customer customer=new Customer();
 		m.addAttribute(customer);
-		return new ModelAndView("SignUp");
+		return new ModelAndView("signUp");
 	}
 	
 	@RequestMapping(value = "/signUpProcess", method = RequestMethod.POST)
@@ -59,25 +59,25 @@ public class IndexController {
 		
 	}
 
-	@RequestMapping("/Product")
+	@RequestMapping("/product")
 	public ModelAndView products(Model m)
 	{
 		Product product = new Product();
 		m.addAttribute(product);
 
-		List<Product> listProducts = productDao.retreiveAllProducts();
-		m.addAttribute("prodlist", listProducts);
-		return new ModelAndView("Product");
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productlist", productList);
+		return new ModelAndView("product");
 	}
 	
-	@RequestMapping(value = "/prodProcess", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("Product") Product product, Model m)
+	@RequestMapping(value = "/productProcess", method = RequestMethod.POST)
+	public ModelAndView addProduct(@ModelAttribute("product") Product product, Model m)
 	{
 		
 		productDao.addProduct(product);
-		List<Product> listProducts = productDao.retreiveAllProducts();
-		m.addAttribute("prodlist", listProducts);
-		return "index";
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productlist", productList);
+		return new ModelAndView("product");
 		
 	}
 

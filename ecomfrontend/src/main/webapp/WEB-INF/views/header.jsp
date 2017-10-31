@@ -11,7 +11,7 @@
   
   <c:set var="contextPath" value="${pageContext.request.contextPath}" />
   
-  <c:set var="images" value="${contextPath}/resources/carousel images"/>
+  <c:set var="images" value="${contextPath}/resources/images"/>
   
   <title>GadgetHack.in</title>
 <style>
@@ -31,7 +31,7 @@ body {
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index">Home</a></li>
-      <li><a href="Product">Products</a></li>
+      <li><a href="product">Products</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
         <ul class="dropdown-menu">
         <li><a href="#">Page 1-1</a></li>
@@ -42,7 +42,7 @@ body {
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>

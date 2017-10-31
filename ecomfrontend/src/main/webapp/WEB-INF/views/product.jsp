@@ -12,6 +12,13 @@
             <meta http-equiv="Content-Type" content="text/html;">
             <title>Add Products</title>
             
+            
+            <style type="text/css">
+            table, th, td {
+            border:2px solid black;
+            
+            }
+            </style>
         </head>
         <body>
 
@@ -23,8 +30,8 @@
 <br>
 
 
-            <form:form id="prodForm" modelAttribute="product" action="prodProcess" method="post">
-                <table align="center">
+            <form:form id="productProcess" modelAttribute="product" action="productProcess" method="post">
+                <table align="center" class="table" style = "width:60%">
                     
                     <tr>
                         <td>
@@ -50,24 +57,23 @@
                             <form:input path="productPrice" name="productPrice" id="productPrice" />
                         </td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <form:button id="product" name="addProduct">Add product</form:button>
-                        </td>
-                    </tr>
-                    <tr></tr>
+                     </table>
+                     
+                   
+                      <form:button id="product" name="addProduct" style="text-align:center;">Add product</form:button>
+                        
                     
-                </table>
+                
             </form:form>
             
-            <table align="center" >
-			<tr>
+           <table align="center" class="table table-inverse" style = "width:80%">
+            
+       		<tr>
 			<th>Product Name</th>
 			<th>Product Description</th>
 			<th>Price</th>
 			</tr>
-			<c:forEach items = "${prodlist}" var="products">
+			<c:forEach items = "${productlist}" var="products">
 			
 			<tr>
 			<td>${products.productName}</td>
