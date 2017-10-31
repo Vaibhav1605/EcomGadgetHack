@@ -31,16 +31,14 @@
 					<div class="form-group">
 						<label for="firstName">First Name:</label> <input type="text"
 							class="form-control" id="firstName" placeholder="Enter name"
-							name="firstName">
+							name="firstName" required="required">
 					</div>
 					<div class="form-group">
 						<label for="lastName">Last Name:</label> <input type="text"
 							class="form-control" id="lastName" placeholder="Enter last name"
-							name="lastName">
+							name="lastName" required="required">
 					</div>
 
-
-					
 					<div class="form-group">
 						<label for="mobileNumber">Mobile Number:</label> <input
 							type="number" class="form-control" id="mobileNumber"
@@ -49,20 +47,20 @@
 					<div class="form-group">
 						<label for="email">Email:</label> <input type="email"
 							class="form-control" id="email" placeholder="Enter your Email Id"
-							name="email">
+							name="email" required="required">
 					</div>
 					<div class="form-group">
 						<label for="password">Password:</label> <input type="password"
 							class="form-control" id="password"
-							placeholder="Atleast 8 Charecters" name="password">
+							placeholder="Atleast 8 Charecters" name="password" required="required">
 					</div>
 					<div class="form-group">
 						<label for="confirmPassword">Confirm Password:</label> <input
 							type="password" class="form-control" id="confirmPassword"
-							placeholder="Retype password" name="confirmPassword">
+							placeholder="Retype password" name="confirmPassword" required="required">
 					</div>
 					<div class="checkbox">
-						<label><input type="checkbox" name="I Agree T&C">I
+						<label><input type="checkbox" name="I Agree T&C" required="required">I
 							Agree all the T&C*.</label>
 					</div>
 					<button type="submit" class="btn btn-default" value="Save">Submit</button>

@@ -11,77 +11,69 @@
         
             <meta http-equiv="Content-Type" content="text/html;">
             <title>Add Products</title>
-            
-            
-            <style type="text/css">
-            table, th, td {
-            border:2px solid black;
-            
-            }
-            </style>
+ 
         </head>
         <body>
 
 <jsp:include page="header.jsp"></jsp:include>
 <br>
 <br>
-<br>
-<br>
-<br>
-
 
             <form:form id="productProcess" modelAttribute="product" action="productProcess" method="post">
-                <table align="center" class="table" style = "width:60%">
+               
                     
-                    <tr>
-                        <td>
-                            <form:label path="productName">Product Name</form:label>
-                        </td>
-                        <td>
-                            <form:input path="productName" name="productName" id="productName" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form:label path="productDesc">Product Description</form:label>
-                        </td>
-                        <td>
-                            <form:input path="productDesc" name="productDesc" id="productDesc" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form:label path="productPrice">Product Price</form:label>
-                        </td>
-                        <td>
-                            <form:input path="productPrice" name="productPrice" id="productPrice" />
-                        </td>
-                    </tr>
-                     </table>
-                     
-                   
-                      <form:button id="product" name="addProduct" style="text-align:center;">Add product</form:button>
-                        
-                    
-                
+                   <div class="container">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4">
+					<h2 style="text-align: center;">Add Product</h2>
+					<div class="form-group">
+						<label for="productName">Product Name:</label> <input type="text"
+							class="form-control" id="productName" placeholder="Enter name of the Product"
+							name="productName" required="required">
+					</div>
+					<div class="form-group">
+						<label for="productDesc">Product Description:</label> <input type="text"
+							class="form-control" id="productDesc" placeholder="Enter Product Description"
+							name="productDesc" required="required">
+					</div>
+
+					<div class="form-group">
+						<label for="productPrice">Product Price:</label> <input
+							type="number" class="form-control" id="productPrice"
+							placeholder="Enter Product Price" name="productPrice" required="required">
+					</div>
+					
+					<button type="submit" class="btn btn-default" value="Save">Submit</button>
+				
+
+				</div>
+			</div>
+		</div>
             </form:form>
             
-           <table align="center" class="table table-inverse" style = "width:80%">
+          <div class="container">
+          
+				
+  <h2 style="text-align: center;">Product List</h2>
             
-       		<tr>
-			<th>Product Name</th>
-			<th>Product Description</th>
-			<th>Price</th>
-			</tr>
+  <table class="table table-bordered">
+    <thead >
+      <tr style="text-align: center;">
+        <th style="text-align: center;">Product Name</th>
+        <th style="text-align: center;">Product Description</th>
+        <th style="text-align: center;">Product Price</th>
+      </tr>
+    </thead>
 			<c:forEach items = "${productlist}" var="products">
 			
-			<tr>
+			<tr style="text-align: center;">
 			<td>${products.productName}</td>
 			<td>${products.productDesc}</td>
 			<td>${products.productPrice}</td>
 			</tr>
 			</c:forEach>
 			</table>
-			
+			</div>
         </body>
         </html>

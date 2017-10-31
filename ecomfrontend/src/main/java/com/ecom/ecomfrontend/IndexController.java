@@ -1,7 +1,5 @@
 package com.ecom.ecomfrontend;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,51 +15,44 @@ import com.ecom.ecombackend.dao.ProductDao;
 import com.ecom.ecombackend.modclass.Customer;
 import com.ecom.ecombackend.modclass.Product;
 
-
 @Controller
 public class IndexController {
-	
+
 	@Autowired
 	CustomerDao customerDao;
-	
+
 	@Autowired
 	ProductDao productDao;
-	
+
 	@RequestMapping("/")
-	public ModelAndView index()
-	{
-		
+	public ModelAndView index() {
+
 		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/index")
-	public ModelAndView home()
-	{
+	public ModelAndView home() {
 		return new ModelAndView("index");
 	}
-	
-	
+
 	@RequestMapping("/signUp")
-	public ModelAndView product(Model m)
-	{
-		Customer customer=new Customer();
+	public ModelAndView product(Model m) {
+		Customer customer = new Customer();
 		m.addAttribute(customer);
 		return new ModelAndView("signUp");
 	}
-	
+
 	@RequestMapping(value = "/signUpProcess", method = RequestMethod.POST)
-	public String addCustomer(@ModelAttribute("customer") Customer customer, Model m)
-	{
-		
+	public String addCustomer(@ModelAttribute("customer") Customer customer, Model m) {
+
 		customerDao.addCustomer(customer);
-		
+
 		return "index";
-		
+
 	}
 
 	@RequestMapping("/product")
-	public ModelAndView products(Model m)
-	{
+	public ModelAndView products(Model m) {
 		Product product = new Product();
 		m.addAttribute(product);
 
@@ -69,16 +60,14 @@ public class IndexController {
 		m.addAttribute("productlist", productList);
 		return new ModelAndView("product");
 	}
-	
+
 	@RequestMapping(value = "/productProcess", method = RequestMethod.POST)
-	public String addProduct(@ModelAttribute("product") Product product, Model m)
-	{
-		
+	public String addProduct(@ModelAttribute("product") Product product, Model m) {
+
 		productDao.addProduct(product);
-		List<Product> productList = productDao.retreiveAllProducts();
-		m.addAttribute("productlist", productList);
+
 		return "redirect:/product";
-		
+
 	}
 
 }

@@ -3,77 +3,83 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
- <title>GadgetHack.in</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-  
-  <c:set var="images" value="${contextPath}/resources/images"/>
-  
-  </head>
-  
-  <body>
+<title>GadgetHack.in</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<jsp:include page="header.jsp"></jsp:include>
-<br>
-<br>
-<br>
-<br>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
+<c:set var="images" value="${contextPath}/resources/images" />
+
+</head>
+
+<body>
+
+	<jsp:include page="header.jsp"></jsp:include>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
-<div class="container">  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="${images}/Gadget Hack.jpg" alt="Gadget Hack" style="width:100%;  height:500px;margin:0 auto;">
-        <div class="carousel-caption">
-        <h3>Gadgets</h3>
-        <p>Get everyday Gadgets.!</p>
-        </div>
-      </div>
-      
 
-      <div class="item">
-        <img src="${images}/DSLR.jpg" alt="DSLR" style="width:100%; height:500px;margin: 0 auto;">
-        <div class="carousel-caption">
-        <h3>DSLR Cameras</h3>
-        <p>Click Ultimate Pictures</p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="${images}/VR Lens.jpg" alt="VR Lens" style="width:100%;height:500px;margin: 0 auto;">
-        <div class="carousel-caption">
-        <h3>VR Lens</h3>
-        <p>Experience Virtual Reality like never before.!</p>
-        </div>
-      </div>
-    </div>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="${images}/Gadget Hack.jpg" alt="Gadget Hack"
+						style="width: 100%; height: 500px; margin: 0 auto;">
+					<div class="carousel-caption">
+						<h3>Gadgets</h3>
+						<p>Get everyday Gadgets.!</p>
+					</div>
+				</div>
 
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
+
+				<div class="item">
+					<img src="${images}/DSLR.jpg" alt="DSLR"
+						style="width: 100%; height: 500px; margin: 0 auto;">
+					<div class="carousel-caption">
+						<h3>DSLR Cameras</h3>
+						<p>Click Ultimate Pictures</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="${images}/VR Lens.jpg" alt="VR Lens"
+						style="width: 100%; height: 500px; margin: 0 auto;">
+					<div class="carousel-caption">
+						<h3>VR Lens</h3>
+						<p>Experience Virtual Reality like never before.!</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#myCarousel"
+				data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
 
 
 </body>

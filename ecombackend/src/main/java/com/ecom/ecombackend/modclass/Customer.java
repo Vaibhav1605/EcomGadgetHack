@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-
 @Entity
 
 public class Customer {
@@ -17,13 +16,14 @@ public class Customer {
 	private String lastName;
 	private String email;
 	private String mobileNumber;
-	private String password;
-	;
+	private String password;;
 	@Transient
 	private String confirmPassword;
+
 	public int getcustId() {
 		return custId;
 	}
+
 	public void setcustId(int custId) {
 		this.custId = custId;
 	}
@@ -31,40 +31,49 @@ public class Customer {
 	public String getfirstName() {
 		return firstName;
 	}
+
 	public void setfirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getlastName() {
 		return lastName;
 	}
+
 	public void setlastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
+
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getpassword() {
 		return password;
 	}
+
 	public void setpassword(String password) {
 		this.password = password;
 	}
+
 	public String getconfirmPassword() {
 		return confirmPassword;
 	}
+
 	public void setconfrimPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-	
-	
 
 }
