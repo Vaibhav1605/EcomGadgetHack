@@ -71,13 +71,13 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/productProcess", method = RequestMethod.POST)
-	public ModelAndView addProduct(@ModelAttribute("product") Product product, Model m)
+	public String addProduct(@ModelAttribute("product") Product product, Model m)
 	{
 		
 		productDao.addProduct(product);
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productlist", productList);
-		return new ModelAndView("product");
+		return "redirect:/product";
 		
 	}
 

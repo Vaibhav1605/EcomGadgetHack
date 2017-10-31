@@ -13,7 +13,7 @@ public class Product {
 	private int productId;
 	private String productName;
 	private String productDesc;
-	private double productPrice;
+	private String productPrice;
 	public int getProductId() {
 		return this.productId;
 	}
@@ -32,10 +32,10 @@ public class Product {
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
 	}
-	public double getProductPrice() {
+	public String getProductPrice() {
 		return this.productPrice;
 	}
-	public void setProductPrice(double productPrice) {
+	public void setProductPrice(String productPrice) {
 		this.productPrice = productPrice;
 	}
 	
