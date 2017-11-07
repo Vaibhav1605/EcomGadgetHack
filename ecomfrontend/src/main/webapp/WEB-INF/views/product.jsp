@@ -23,7 +23,7 @@
 	<br>
 
 	<form:form id="productProcess" modelAttribute="product"
-		action="productProcess" method="post">
+		action="productProcess" method="post" enctype="multipart/form-data">
 
 
 		<div class="container">
@@ -50,21 +50,27 @@
 							placeholder="Enter product Price" />
 					</div>
 					<div class="form-group">
-						<label for="sel1">Select Category:</label>
-						<form:select class="form-control" id="sel1"
-							path="category.categoryId">
-							<c:forEach var="category" items="${categoryList}">
-								<option value="${category.categoryId}">${category.categoryName}</option>
-							</c:forEach>
-						</form:select>
+						<label for="productImage">Product Image</label> <form:input type="file"
+							path="productImage" />
+							<br>
+
+						<div class="form-group">
+							<label for="sel1">Select Category:</label>
+							<form:select class="form-control" id="sel1"
+								path="category.categoryId">
+								<c:forEach var="category" items="${categoryList}">
+									<option value="${category.categoryId}">${category.categoryName}</option>
+								</c:forEach>
+							</form:select>
+						</div>
+						</div>
+
+						<button type="submit" class="btn btn-default" value="Save">Submit</button>
+
+
 					</div>
-
-					<button type="submit" class="btn btn-default" value="Save">Submit</button>
-
-
 				</div>
 			</div>
-		</div>
 	</form:form>
 
 	<div class="container">
@@ -78,6 +84,7 @@
 					<th style="text-align: center;">Product Name</th>
 					<th style="text-align: center;">Product Description</th>
 					<th style="text-align: center;">Product Price</th>
+					
 				</tr>
 			</thead>
 			<c:forEach items="${productList}" var="products">
@@ -86,6 +93,7 @@
 					<td>${products.productName}</td>
 					<td>${products.productDesc}</td>
 					<td>${products.productPrice}</td>
+					
 				</tr>
 			</c:forEach>
 		</table>

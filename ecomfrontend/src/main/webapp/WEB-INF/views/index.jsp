@@ -15,7 +15,7 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-<c:set var="images" value="${contextPath}/resources/images" />
+<c:set var="carousel_images" value="${contextPath}/resources/carousel-images" />
 
 </head>
 
@@ -41,7 +41,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="${images}/Gadget Hack.jpg" alt="Gadget Hack"
+					<img src="${carousel_images}/Gadget Hack.jpg" alt="Gadget Hack"
 						style="width: 100%; height: 500px; margin: 0 auto;">
 					<div class="carousel-caption">
 						<h3>Gadgets</h3>
@@ -51,7 +51,7 @@
 
 
 				<div class="item">
-					<img src="${images}/DSLR.jpg" alt="DSLR"
+					<img src="${carousel_images}/DSLR.jpg" alt="DSLR"
 						style="width: 100%; height: 500px; margin: 0 auto;">
 					<div class="carousel-caption">
 						<h3>DSLR Cameras</h3>
@@ -60,7 +60,7 @@
 				</div>
 
 				<div class="item">
-					<img src="${images}/VR Lens.jpg" alt="VR Lens"
+					<img src="${carousel_images}/VR Lens.jpg" alt="VR Lens"
 						style="width: 100%; height: 500px; margin: 0 auto;">
 					<div class="carousel-caption">
 						<h3>VR Lens</h3>
