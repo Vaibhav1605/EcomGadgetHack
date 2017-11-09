@@ -16,9 +16,10 @@ public class Customer {
 	private String lastName;
 	private String email;
 	private String mobileNumber;
-	private String password;;
+	private String password;
 	@Transient
 	private String confirmPassword;
+	private String role="ROLE_CUSTOMER";
 
 	public int getcustId() {
 		return custId;
@@ -74,6 +75,14 @@ public class Customer {
 
 	public void setconfrimPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

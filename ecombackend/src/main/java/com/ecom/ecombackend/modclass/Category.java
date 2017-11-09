@@ -20,7 +20,7 @@ public class Category {
 	private String categoryName;
 	private String categoryDesc;
 
-	@OneToMany(fetch = FetchType.EAGER,mappedBy = "category")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
 	private Collection<Product> products = new ArrayList<Product>();
 
 	public int getCategoryId() {

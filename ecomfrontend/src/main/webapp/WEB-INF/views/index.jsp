@@ -3,7 +3,7 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <html>
 <head>
-<title>GadgetHack.in</title>
+<title>GadgetHack</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,7 +15,8 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-<c:set var="carousel_images" value="${contextPath}/resources/carousel-images" />
+<c:set var="carousel_images"
+	value="${contextPath}/resources/carousel-images" />
 
 </head>
 

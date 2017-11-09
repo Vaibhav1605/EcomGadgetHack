@@ -41,18 +41,18 @@
 						<label for="productDesc">Product Description</label>
 						<form:input path="productDesc" type="text" class="form-control"
 							name="productDesc" id="productDesc"
-							placeholder="Enter product Description" />
+							placeholder="Enter product Description" required="required" />
 					</div>
 					<div class="form-group">
 						<label for="productPrice">Product Price</label>
 						<form:input path="productPrice" type="number" class="form-control"
 							name="productPrice" id="productPrice"
-							placeholder="Enter product Price" />
+							placeholder="Enter product Price" required="required" />
 					</div>
 					<div class="form-group">
-						<label for="productImage">Product Image</label> <form:input type="file"
-							path="productImage" />
-							<br>
+						<label for="productImage">Product Image</label>
+						<form:input type="file" path="productImage" />
+						<br>
 
 						<div class="form-group">
 							<label for="sel1">Select Category:</label>
@@ -63,14 +63,14 @@
 								</c:forEach>
 							</form:select>
 						</div>
-						</div>
-
-						<button type="submit" class="btn btn-default" value="Save">Submit</button>
-
-
 					</div>
+
+					<button type="submit" class="btn btn-default" value="Save">Submit</button>
+
+
 				</div>
 			</div>
+		</div>
 	</form:form>
 
 	<div class="container">
@@ -84,16 +84,16 @@
 					<th style="text-align: center;">Product Name</th>
 					<th style="text-align: center;">Product Description</th>
 					<th style="text-align: center;">Product Price</th>
-					
+
 				</tr>
 			</thead>
 			<c:forEach items="${productList}" var="products">
 
 				<tr style="text-align: center;">
-					<td>${products.productName}</td>
+					<td><a href="productInfo/${products.productId}">${products.productName}</a></td>
 					<td>${products.productDesc}</td>
 					<td>${products.productPrice}</td>
-					
+
 				</tr>
 			</c:forEach>
 		</table>

@@ -11,7 +11,7 @@ import com.ecom.ecombackend.dao.CustomerDao;
 import com.ecom.ecombackend.modclass.Customer;
 import junit.framework.Assert;
 
-public class Testing {
+public class CustomerTest {
 	AnnotationConfigApplicationContext context;
 	CustomerDao customerDao;
 	Customer customer;

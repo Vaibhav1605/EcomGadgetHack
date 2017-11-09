@@ -12,7 +12,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<title>GadgetHack.in</title>
+<title>Sign Up</title>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 </head>

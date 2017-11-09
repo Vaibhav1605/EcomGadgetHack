@@ -4,11 +4,12 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
-
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,17 +36,30 @@ public class IndexController {
 	CategoryDao categoryDao;
 
 	@RequestMapping("/")
-	public ModelAndView index() {
+	public ModelAndView index(Model m) {
+
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+		List<Category> categoryList = categoryDao.retreiveAllCategories();
+		m.addAttribute("categoryList", categoryList);
 		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/index")
-	public ModelAndView home() {
+	public ModelAndView home(Model m) {
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+		List<Category> categoryList = categoryDao.retreiveAllCategories();
+		m.addAttribute("categoryList", categoryList);
 		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/signUp")
-	public ModelAndView registration(Model m) {
+	public ModelAndView signUp(Model m) {
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+		List<Category> categoryList = categoryDao.retreiveAllCategories();
+		m.addAttribute("categoryList", categoryList);
 		Customer customer = new Customer();
 		m.addAttribute(customer);
 		return new ModelAndView("signUp");
@@ -54,7 +68,7 @@ public class IndexController {
 	@RequestMapping(value = "/signUpProcess", method = RequestMethod.POST)
 	public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer) {
 		customerDao.addCustomer(customer);
-		return new ModelAndView("index");
+		return new ModelAndView("login");
 	}
 
 	@RequestMapping("/product")
@@ -70,14 +84,17 @@ public class IndexController {
 
 	@RequestMapping(value = "/productProcess", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product") Product product,
-			@RequestParam("productImage") MultipartFile multiPartFile, Model m) {
+			@RequestParam("productImage") MultipartFile multiPartFile, Model m, HttpServletRequest request) {
 		/*
 		 * System.out.println(product.getProductName());
 		 * System.out.println("product cat"+product.getCategory());
 		 */
 		productDao.addProduct(product);
-		String path = "C:/Users/Vaibhav/Workspace2/GadgetHack/ecomfrontend/src/main/webapp/resources/images/";
-		String totalFileWithPath = path + String.valueOf(product.getProductId()) + ".jpg";
+		// String path =
+		// "C:/Users/Vaibhav/Workspace2/GadgetHack/ecomfrontend/src/main/webapp/resources/images/";
+		String path = request.getServletContext().getRealPath("/resources/images/");
+		String totalFileWithPath = path + String.valueOf(product.getProductName()) + ".jpg";
+		System.out.println(totalFileWithPath);
 		File productImage = new File(totalFileWithPath);
 		if (!multiPartFile.isEmpty()) {
 			try {
@@ -100,5 +117,38 @@ public class IndexController {
 		 * Product(); m.addAttribute(product1);
 		 */
 		return "redirect:/product";
+	}
+
+	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)
+	public ModelAndView productInfo(@PathVariable(value = "productId") Integer productId, Model m) {
+		m.addAttribute("product", productDao.getProduct(productId));
+/*		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);*/
+		return new ModelAndView("productInfo");
+	}
+
+	@RequestMapping("/login")
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error, Model m) {
+		System.out.println(error);
+		if (error != null) {
+			m.addAttribute("error", "Authentication Failed - Invalid credentials!");
+		}
+
+		m.addAttribute("title", "Login");
+		m.addAttribute("login", true);
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+		List<Category> categoryList = categoryDao.retreiveAllCategories();
+		m.addAttribute("categoryList", categoryList);
+		return new ModelAndView("login");
+	}
+
+	@RequestMapping(value = "/categoryItems/{productName}", method = RequestMethod.GET)
+	public ModelAndView categoryInfo(Model m) {
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+		List<Category> categoryList = categoryDao.retreiveAllCategories();
+		m.addAttribute("categoryList", categoryList);
+		return new ModelAndView("categoryItems");
 	}
 }
