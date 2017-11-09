@@ -122,8 +122,10 @@ public class IndexController {
 	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)
 	public ModelAndView productInfo(@PathVariable(value = "productId") Integer productId, Model m) {
 		m.addAttribute("product", productDao.getProduct(productId));
-/*		List<Product> productList = productDao.retreiveAllProducts();
-		m.addAttribute("productList", productList);*/
+		/*
+		 * List<Product> productList = productDao.retreiveAllProducts();
+		 * m.addAttribute("productList", productList);
+		 */
 		return new ModelAndView("productInfo");
 	}
 
@@ -143,12 +145,30 @@ public class IndexController {
 		return new ModelAndView("login");
 	}
 
-	@RequestMapping(value = "/categoryItems/{productName}", method = RequestMethod.GET)
-	public ModelAndView categoryInfo(Model m) {
+	@RequestMapping(value = "/categoryItems/{categoryName}", method = RequestMethod.GET)
+	public ModelAndView categoryInfo(@PathVariable(value = "categoryName") String categoryName, Model m) {
+		m.addAttribute("products", categoryDao.getretrieveAllProdutsOfCategory(categoryName));
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
 		m.addAttribute("categoryList", categoryList);
 		return new ModelAndView("categoryItems");
+	}
+
+	@RequestMapping("/category")
+	public ModelAndView category(Model m) {
+		Category category = new Category();
+		m.addAttribute(category);
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+		List<Category> categoryList = categoryDao.retreiveAllCategories();
+		m.addAttribute("categoryList", categoryList);
+		return new ModelAndView("category");
+	}
+
+	@RequestMapping(value = "/categoryProcess", method = RequestMethod.POST)
+	public String saveCategory(@ModelAttribute("category") Category category, Model m, HttpServletRequest request) {
+		categoryDao.addCategory(category);
+		return "redirect:/category";
 	}
 }

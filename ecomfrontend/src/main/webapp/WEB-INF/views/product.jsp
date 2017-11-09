@@ -86,6 +86,7 @@
 					<th style="text-align: center;">Product Price</th>
 
 				</tr>
+
 			</thead>
 			<c:forEach items="${productList}" var="products">
 
@@ -94,9 +95,11 @@
 					<td>${products.productDesc}</td>
 					<td>${products.productPrice}</td>
 
+
 				</tr>
 			</c:forEach>
 		</table>
+
 	</div>
 </body>
 </html>

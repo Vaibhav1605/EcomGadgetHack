@@ -10,13 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ecom.ecombackend.dao.CategoryDao;
 import com.ecom.ecombackend.modclass.Category;
-
-
+import com.ecom.ecombackend.modclass.Product;
 
 @Repository("categoryDao")
 @Transactional
 public class CategoryDaoImpl implements CategoryDao {
-	
+
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -76,9 +75,37 @@ public class CategoryDaoImpl implements CategoryDao {
 			return null;
 
 		}
-	
+
 	}
 
-	
+	@Override
+	public Integer getCatId(String catName) {
+		// TODO Auto-generated method stub
+		try {
 
+			Category cat = sessionFactory.getCurrentSession()
+					.createQuery("from Category where categoryName=:catName", Category.class)
+					.setParameter("catName", catName).getSingleResult();
+			return cat.getCategoryId();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+
+		}
+	}
+
+	@Override
+	public List<Product> getretrieveAllProdutsOfCategory(String categoryName) {
+		// TODO Auto-generated method stub
+		try {
+			Integer id = getCatId(categoryName);
+			return sessionFactory.getCurrentSession()
+					.createQuery("from Product where category_categoryid=:catid", Product.class)
+					.setParameter("catid", id).getResultList();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
 }

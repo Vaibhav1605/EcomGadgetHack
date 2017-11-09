@@ -20,11 +20,12 @@
 					data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<c:forEach var="cat" items="${categoryList}">
-							<li><a href="${contextPath}/categoryItems/${cat.categoryId}">${cat.categoryName}</a></li>
+							<li><a href="${contextPath}/categoryItems/${cat.categoryName}">${cat.categoryName}</a></li>
 						</c:forEach>
 					</ul></li>
-					<li><a href="${contextPath}/product">Category</a></li>
+					<li><a href="${contextPath}/category">Category</a></li>
 			</ul>
+			
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="${contextPath}/signUp"><span
 						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
