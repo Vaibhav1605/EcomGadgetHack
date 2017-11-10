@@ -27,7 +27,7 @@
 	<style>
 .img-thumbnail {
 	height: 300px;
-	width: 800px;
+	width: 400px;
 }
 </style>
 	<div class="container" style="margin-top: 100px;">
@@ -37,11 +37,11 @@
 				<c:forEach items="${products}" var="product">
 					<div class="col-md-6" style="text-align: center">
 
-						<h2>${product.productName }</h2>
+						
 						<a"${contextPath}/product/${product.productName}"><img
 							src="${image}/${product.productName}.jpg" class="img-thumbnail"></a>
-						<h3>${product.productName}</h3>
-						<h3>${product.productPrice}</h3>
+						<h3>Description: ${product.productDesc}</h3>
+						<h3>Cost: ${product.productPrice}</h3>
 
 					</div>
 				</c:forEach>

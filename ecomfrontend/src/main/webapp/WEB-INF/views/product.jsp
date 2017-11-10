@@ -21,9 +21,11 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<br>
 	<br>
-
+	
+	
+	
 	<form:form id="productProcess" modelAttribute="product"
-		action="productProcess" method="post" enctype="multipart/form-data">
+		action="${pageContext.request.contextPath}/productProcess" method="post" enctype="multipart/form-data">
 
 
 		<div class="container">
@@ -31,6 +33,7 @@
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
 					<h2 style="text-align: center;">Add Product</h2>
+					<form:input type="hidden" path="productId"/>
 					<div class="form-group">
 						<label for="productName">Product Name</label>
 						<form:input type="text" path="productName" class="form-control"
@@ -84,6 +87,8 @@
 					<th style="text-align: center;">Product Name</th>
 					<th style="text-align: center;">Product Description</th>
 					<th style="text-align: center;">Product Price</th>
+					<th style="text-align: center;">Edit / Delete</th>
+
 
 				</tr>
 
@@ -94,12 +99,14 @@
 					<td><a href="productInfo/${products.productId}">${products.productName}</a></td>
 					<td>${products.productDesc}</td>
 					<td>${products.productPrice}</td>
-
+					<td><a href="${pageContext.request.contextPath}/editProduct/${products.productId}"><button
+								type="button" class="btn btn-warning">Edit</button></a>
+					<a href="${pageContext.request.contextPath}/deleteProduct/${products.productId}"><button
+								type="button" class="btn btn-danger">Delete</button></a></td>
 
 				</tr>
 			</c:forEach>
 		</table>
-
 	</div>
 </body>
 </html>

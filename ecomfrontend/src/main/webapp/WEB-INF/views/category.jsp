@@ -23,7 +23,7 @@
 	<br>
 
 	<form:form id="categoryProcess" modelAttribute="category"
-		action="categoryProcess" method="post" enctype="multipart/form-data">
+		action="${pageContext.request.contextPath}/categoryProcess" method="post">
 
 
 		<div class="container">
@@ -31,6 +31,7 @@
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
 					<h2 style="text-align: center;">Add Category</h2>
+					<form:input type="hidden" path="categoryId"/>
 					<div class="form-group">
 						<label for="categoryName">Category Name</label>
 						<form:input type="text" path="categoryName" class="form-control"
@@ -44,9 +45,9 @@
 							placeholder="Enter Category Description" required="required" />
 					</div>
 					<button type="submit" class="btn btn-default" value="Save">Submit</button>
-					
+
 				</div>
-				
+
 			</div>
 		</div>
 	</form:form>
@@ -61,6 +62,7 @@
 				<tr style="text-align: center;">
 					<th style="text-align: center;">Category Name</th>
 					<th style="text-align: center;">Category Description</th>
+					<th style="text-align: center;">Edit / Delete</th>
 
 
 				</tr>
@@ -70,6 +72,10 @@
 				<tr style="text-align: center;">
 					<td><a href="category/${category.categoryId}">${category.categoryName}</a></td>
 					<td>${category.categoryDesc}</td>
+					<td><a href="${pageContext.request.contextPath}/editCategory/${category.categoryId}"><button
+								type="button" class="btn btn-warning">Edit</button></a>
+					<a href="${pageContext.request.contextPath}/deleteCategory/${category.categoryId}"><button
+								type="button" class="btn btn-danger">Delete</button></a></td>
 
 				</tr>
 			</c:forEach>

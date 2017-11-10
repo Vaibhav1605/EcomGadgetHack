@@ -52,6 +52,7 @@ public class CategoryDaoImpl implements CategoryDao {
 			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (Exception e) {
+			System.out.println(e);
 			return false;
 		}
 	}
