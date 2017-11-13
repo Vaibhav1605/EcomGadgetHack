@@ -10,7 +10,7 @@ import com.ecom.ecombackend.dao.ProductDao;
 import com.ecom.ecombackend.modclass.Category;
 import com.ecom.ecombackend.modclass.Product;
 
-public class productTest {
+public class ProductTest {
 	// we have to declare reference variables here to access it in any method
 	AnnotationConfigApplicationContext context;
 	ProductDao productDao;

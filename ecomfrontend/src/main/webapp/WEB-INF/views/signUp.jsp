@@ -27,7 +27,7 @@
 			<div class="row">
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
-					<h2>SignUp Form</h2>
+					<h2>SignUp</h2>
 					<div class="form-group">
 						<label for="firstName">First Name:</label> <input type="text"
 							class="form-control" id="firstName" placeholder="Enter name"
@@ -40,8 +40,8 @@
 					</div>
 
 					<div class="form-group">
-						<label for="mobileNumber">Mobile Number:</label> <input
-							type="number" class="form-control" id="mobileNumber"
+						<label for="mobileNumber">Mobile Number:</label> <input type="tel"
+							class="form-control" id="mobileNumber"
 							placeholder="Enter Your Mobile Number" name="mobileNumber">
 					</div>
 					<div class="form-group">
@@ -52,16 +52,19 @@
 					<div class="form-group">
 						<label for="password">Password:</label> <input type="password"
 							class="form-control" id="password"
-							placeholder="Atleast 8 Charecters" name="password" required="required">
+							placeholder="Atleast 8 Charecters" name="password"
+							required="required">
 					</div>
+					<form:input path="is_Active" value="TRUE" hidden="true" />
 					<div class="form-group">
 						<label for="confirmPassword">Confirm Password:</label> <input
 							type="password" class="form-control" id="confirmPassword"
-							placeholder="Retype password" name="confirmPassword" required="required">
+							placeholder="Retype password" name="confirmPassword"
+							required="required">
 					</div>
 					<div class="checkbox">
-						<label><input type="checkbox" name="I Agree T&C" required="required">I
-							Agree all the T&C*.</label>
+						<label><input type="checkbox" name="I Agree T&C"
+							required="required">I Agree all the T&C*.</label>
 					</div>
 					<button type="submit" class="btn btn-default" value="Save">Submit</button>
 

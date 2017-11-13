@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,13 +18,25 @@ public class Product {
 	private String productName;
 	private String productDesc;
 	private double productPrice;
-	
-    @ManyToOne
+	private double productStock;
+
+	@ManyToOne
 	private Category category;
-    
-    @Transient
-    private MultipartFile productImage;
-    
+
+	@Transient
+	private MultipartFile productImage;
+
+	@OneToOne(mappedBy = "product")
+	private CartItems cartItems;
+
+	public CartItems getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(CartItems cartItems) {
+		this.cartItems = cartItems;
+	}
+
 	public MultipartFile getProductImage() {
 		return productImage;
 	}
@@ -70,6 +83,14 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public double getProductStock() {
+		return productStock;
+	}
+
+	public void setProductStock(double productStock) {
+		this.productStock = productStock;
 	}
 
 }

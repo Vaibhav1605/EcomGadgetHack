@@ -37,7 +37,7 @@
 				<c:forEach items="${products}" var="product">
 					<div class="col-md-6" style="text-align: center">
 
-						
+
 						<a"${contextPath}/product/${product.productName}"><img
 							src="${image}/${product.productName}.jpg" class="img-thumbnail"></a>
 						<h3>Description: ${product.productDesc}</h3>

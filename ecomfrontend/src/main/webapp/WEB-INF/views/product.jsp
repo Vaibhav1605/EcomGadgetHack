@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page language="java" contentType="text/html;"%>
 <html>
 <head>
@@ -21,11 +22,12 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<br>
 	<br>
-	
-	
-	
+
+
+
 	<form:form id="productProcess" modelAttribute="product"
-		action="${pageContext.request.contextPath}/productProcess" method="post" enctype="multipart/form-data">
+		action="${pageContext.request.contextPath}/admin/productProcess"
+		method="post" enctype="multipart/form-data">
 
 
 		<div class="container">
@@ -33,7 +35,7 @@
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
 					<h2 style="text-align: center;">Add Product</h2>
-					<form:input type="hidden" path="productId"/>
+					<form:input type="hidden" path="productId" />
 					<div class="form-group">
 						<label for="productName">Product Name</label>
 						<form:input type="text" path="productName" class="form-control"
@@ -56,6 +58,13 @@
 						<label for="productImage">Product Image</label>
 						<form:input type="file" path="productImage" />
 						<br>
+
+						<div class="form-group">
+							<label for="productStock">Product Stock</label>
+							<form:input path="productStock" type="number"
+								class="form-control" name="productStock" id="productStock"
+								placeholder="Enter Product Stock" required="required" />
+						</div>
 
 						<div class="form-group">
 							<label for="sel1">Select Category:</label>
@@ -87,21 +96,27 @@
 					<th style="text-align: center;">Product Name</th>
 					<th style="text-align: center;">Product Description</th>
 					<th style="text-align: center;">Product Price</th>
+					<th style="text-align: center;">Product Stock</th>
 					<th style="text-align: center;">Edit / Delete</th>
 
 
 				</tr>
 
 			</thead>
-			<c:forEach items="${productList}" var="products">
+			<c:forEach items="${productList}" var="product">
 
 				<tr style="text-align: center;">
-					<td><a href="productInfo/${products.productId}">${products.productName}</a></td>
-					<td>${products.productDesc}</td>
-					<td>${products.productPrice}</td>
-					<td><a href="${pageContext.request.contextPath}/editProduct/${products.productId}"><button
-								type="button" class="btn btn-warning">Edit</button></a>
-					<a href="${pageContext.request.contextPath}/deleteProduct/${products.productId}"><button
+					<td><a href="productInfo/${product.productId}">${product.productName}</a></td>
+					<td>${product.productDesc}</td>
+					<td>${product.productPrice}</td>
+					<fmt:parseNumber value="${product.productStock}" var="stock"
+						integerOnly="true">
+					</fmt:parseNumber>
+					<td>${stock}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/admin/editProduct/${product.productId}"><button
+								type="button" class="btn btn-warning">Edit</button></a> <a
+						href="${pageContext.request.contextPath}/admin/deleteProduct/${product.productId}"><button
 								type="button" class="btn btn-danger">Delete</button></a></td>
 
 				</tr>

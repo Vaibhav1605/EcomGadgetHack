@@ -23,7 +23,8 @@
 	<br>
 
 	<form:form id="categoryProcess" modelAttribute="category"
-		action="${pageContext.request.contextPath}/categoryProcess" method="post">
+		action="${pageContext.request.contextPath}/admin/categoryProcess"
+		method="post">
 
 
 		<div class="container">
@@ -31,7 +32,7 @@
 				<div class="col-sm-4"></div>
 				<div class="col-sm-4">
 					<h2 style="text-align: center;">Add Category</h2>
-					<form:input type="hidden" path="categoryId"/>
+					<form:input type="hidden" path="categoryId" />
 					<div class="form-group">
 						<label for="categoryName">Category Name</label>
 						<form:input type="text" path="categoryName" class="form-control"
@@ -44,7 +45,7 @@
 							name="categoryDesc" id="categoryDesc"
 							placeholder="Enter Category Description" required="required" />
 					</div>
-					<button type="submit" class="btn btn-default" value="Save">Submit</button>
+					<input type="submit" class="btn btn-default" value="Save">
 
 				</div>
 
@@ -72,9 +73,10 @@
 				<tr style="text-align: center;">
 					<td><a href="category/${category.categoryId}">${category.categoryName}</a></td>
 					<td>${category.categoryDesc}</td>
-					<td><a href="${pageContext.request.contextPath}/editCategory/${category.categoryId}"><button
-								type="button" class="btn btn-warning">Edit</button></a>
-					<a href="${pageContext.request.contextPath}/deleteCategory/${category.categoryId}"><button
+					<td><a
+						href="${pageContext.request.contextPath}/admin/editCategory/${category.categoryId}"><button
+								type="button" class="btn btn-warning">Edit</button></a> <a
+						href="${pageContext.request.contextPath}/admin/deleteCategory/${category.categoryId}"><button
 								type="button" class="btn btn-danger">Delete</button></a></td>
 
 				</tr>

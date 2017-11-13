@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.ecom.ecombackend")
 public class HibConfig {
 
-	@Bean
+	@Bean(name = { "dataSource" })
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("org.h2.Driver");

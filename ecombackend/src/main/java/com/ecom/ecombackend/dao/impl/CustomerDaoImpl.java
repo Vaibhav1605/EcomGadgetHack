@@ -22,7 +22,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	public boolean addCustomer(Customer customer) {
 
 		try {
-			sessionFactory.getCurrentSession().save(customer);
+			sessionFactory.getCurrentSession().persist(customer);
 			return true;
 		} catch (Exception ex) {
 			return false;
@@ -80,6 +80,16 @@ public class CustomerDaoImpl implements CustomerDao {
 
 		}
 
+	}
+
+	@Override
+	public Customer getCustomerDetails(String name) {
+		try {
+			return sessionFactory.getCurrentSession().createQuery("from Customer where email=:email", Customer.class)
+					.setParameter("email", name).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

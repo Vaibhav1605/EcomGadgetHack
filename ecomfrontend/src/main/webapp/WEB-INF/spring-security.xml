@@ -7,12 +7,12 @@
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/admin**" access="Admin" />
-		<intercept-url pattern="/customer**" access="Customer" />
+		<intercept-url pattern="/admin**" access="ROLE_ADMIN" />
+		<intercept-url pattern="/customer**" access="ROLE_CUSTOMER" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/login?error" />
-		<logout logout-success-url="/" logout-url="/perform_logout"
+		<logout logout-success-url="/" logout-url="/logout"
 			delete-cookies="JSESSIONID" />
 		<csrf disabled="true" />
 	</http>

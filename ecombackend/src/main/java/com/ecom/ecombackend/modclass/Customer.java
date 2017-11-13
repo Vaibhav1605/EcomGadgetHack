@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 @Entity
@@ -19,7 +20,18 @@ public class Customer {
 	private String password;
 	@Transient
 	private String confirmPassword;
-	private String role="ROLE_CUSTOMER";
+	private boolean is_Active;
+	private String role = "ROLE_CUSTOMER";
+	@OneToOne(mappedBy = "customer")
+	private Cart cart;
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 
 	public int getcustId() {
 		return custId;
@@ -83,6 +95,14 @@ public class Customer {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public boolean isIs_Active() {
+		return is_Active;
+	}
+
+	public void setIs_Active(boolean is_Active) {
+		this.is_Active = is_Active;
 	}
 
 }

@@ -15,18 +15,18 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<br>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4"></div>
-				<div class="col-sm-4">
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
 
 				<h2>Login</h2>
-				<form action="Secondservlet" method="post">
+				<form action="" method="post">
 					<div class="form-group">
 						<label for="email">Email:</label> <input type="email"
 							class="form-control" id="email" placeholder="Registered Email Id"
-							name="email" required="required">
+							name="username" required="required">
 					</div>
 					<div class="form-group">
 						<label for="password">Password:</label> <input type="password"
@@ -37,14 +37,14 @@
 						<label><input type="checkbox" name="remember">
 							Remember me</label>
 					</div>
-					<a href="${contextPath}/MyAccount.jsp"><button type="submit"
-							class="btn btn-default">Submit</button></a>
-
-					<p align="center">
-						Don`t have an Account? <a href="${contextPath}/signUp.jsp">Create
-							One.! </a>
-					</p>
+					<input type="submit" value="login"/>
+					
 				</form>
+				<p align="center">
+						Don`t have an Account? <a
+							href="${pageContext.request.contextPath}/signUp">Create One.!
+						</a>
+					</p>
 			</div>
 		</div>
 	</div>

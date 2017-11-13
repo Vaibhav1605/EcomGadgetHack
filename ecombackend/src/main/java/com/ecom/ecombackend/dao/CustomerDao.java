@@ -15,6 +15,8 @@ public interface CustomerDao {
 
 	public Customer getCustomer(int id);
 
+	Customer getCustomerDetails(String name);
+
 	public boolean updateCustomer(Customer customer);
 
 	List<Customer> retreiveAllCustomers();

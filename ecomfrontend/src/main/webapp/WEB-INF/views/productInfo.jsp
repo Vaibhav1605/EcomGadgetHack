@@ -28,23 +28,27 @@
 </head>
 
 <body>
-<div class="container-fluid" style="margin-top:150px;">
-	<c:set var="images"
-		value="${pageContext.request.contextPath}/resources/images" />
+	<div class="container-fluid" style="margin-top: 150px;">
+		<c:set var="images"
+			value="${pageContext.request.contextPath}/resources/images" />
 		<div class="row">
-	<div class="col-sm-6">
-	
-	<h2>${product.productName }</h2>
-		<img src="${images}/${product.productName}.jpg" style="height:300px;"/>
-	</div> 
-	
-	
-	<div class="col-sm-6">
-	<br>
-	<h2>Product Desc: ${product.productDesc}</h2>
-	<h2>Product Cost: ${product.productPrice}</h2>
-	</div>
-	</div>
+			<div class="col-sm-6">
+
+				<h2>${product.productName }</h2>
+				<img src="${images}/${product.productName}.jpg"
+					style="height: 300px;" />
+			</div>
+
+
+			<div class="col-sm-6">
+				<br>
+				<h2>Product Desc: ${product.productDesc}</h2>
+				<h2>Product Cost: ${product.productPrice}</h2>
+				<button type="button" class="btn btn-primary">Add To Cart</button>
+				<button type="button" class="btn btn-warning">Buy Now</button>
+				
+			</div>
+		</div>
 	</div>
 </body>
 </html>
