@@ -3,6 +3,7 @@ package com.ecom.ecombackend.modclass;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class Cart {
 	private int cartQuantity;
 	private double totalPrice;
 
-	@OneToMany(mappedBy="cart")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="cart")
 	private List<CartItems> cartItems;
 	@OneToOne()
 	private Customer customer;

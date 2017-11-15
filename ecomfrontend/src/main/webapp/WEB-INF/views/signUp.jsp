@@ -29,38 +29,43 @@
 				<div class="col-sm-4">
 					<h2>SignUp</h2>
 					<div class="form-group">
-						<label for="firstName">First Name:</label> <input type="text"
-							class="form-control" id="firstName" placeholder="Enter name"
-							name="firstName" required="required">
+						<label for="firstName">First Name:</label>
+						<form:input type="text" path="firstName" class="form-control"
+							id="firstName" placeholder="Enter name" name="firstName"
+							required="required" />
 					</div>
 					<div class="form-group">
-						<label for="lastName">Last Name:</label> <input type="text"
-							class="form-control" id="lastName" placeholder="Enter last name"
-							name="lastName" required="required">
+						<label for="lastName">Last Name:</label>
+						<form:input type="text" path="lastName" class="form-control"
+							id="lastName" placeholder="Enter last name" name="lastName"
+							required="required" />
 					</div>
 
 					<div class="form-group">
-						<label for="mobileNumber">Mobile Number:</label> <input type="tel"
-							class="form-control" id="mobileNumber"
-							placeholder="Enter Your Mobile Number" name="mobileNumber">
+						<label for="mobileNumber">Mobile Number:</label>
+						<form:input type="tel" path="mobileNumber" class="form-control"
+							id="mobileNumber" placeholder="Enter Your Mobile Number"
+							name="mobileNumber" />
 					</div>
 					<div class="form-group">
-						<label for="email">Email:</label> <input type="email"
-							class="form-control" id="email" placeholder="Enter your Email Id"
-							name="email" required="required">
+						<label for="email">Email:</label>
+						<form:input type="email" path="email" class="form-control"
+							id="email" placeholder="Enter your Email Id" name="email"
+							required="required" />
 					</div>
 					<div class="form-group">
-						<label for="password">Password:</label> <input type="password"
-							class="form-control" id="password"
-							placeholder="Atleast 8 Charecters" name="password"
-							required="required">
+						<label for="password">Password:</label>
+						<form:input type="password" path="password" class="form-control"
+							id="password" placeholder="Atleast 8 Charecters" name="password"
+							required="required" />
 					</div>
 					<form:input path="is_Active" value="TRUE" hidden="true" />
 					<div class="form-group">
-						<label for="confirmPassword">Confirm Password:</label> <input
-							type="password" class="form-control" id="confirmPassword"
+						<label for="confirmPassword">Confirm Password:</label>
+						<form:input type="password" path="confirmPassword"
+							class="form-control" id="confirmPassword"
 							placeholder="Retype password" name="confirmPassword"
-							required="required">
+							required="required" />
 					</div>
 					<div class="checkbox">
 						<label><input type="checkbox" name="I Agree T&C"

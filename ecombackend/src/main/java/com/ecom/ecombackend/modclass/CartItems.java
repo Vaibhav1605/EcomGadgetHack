@@ -1,6 +1,7 @@
 package com.ecom.ecombackend.modclass;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ public class CartItems {
 	private int cartItemsQuantity;
 	@ManyToOne
 	private Cart cart;
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	private Product product;
 
 	public int getCartItemsId() {

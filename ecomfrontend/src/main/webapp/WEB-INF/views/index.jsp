@@ -17,6 +17,8 @@
 
 <c:set var="carousel_images"
 	value="${contextPath}/resources/carousel-images" />
+<c:set var="images" value="${contextPath}/resources/images" />
+
 
 </head>
 
@@ -81,7 +83,32 @@
 			</a>
 		</div>
 	</div>
+	<div class="container">
+		<c:forEach items="${categoryList}" var="cat" begin="0" end="3">
+			<h2>${cat.categoryName}</h2>
+			<div class="row">
+				<c:forEach items="${cat.products}" var="product" begin="0" end="2">
+					<div class="col-md-4">
+						<div class="img-responsive">
+							<a href="${contextPath}/productInfo/${product.productId}.jpg"
+								target="_blank"> <img
+								src="${images}/${product.productName}.jpg" alt="productImage"
+								style="width: 150px; height: 150px;">
+								<div class="caption">
+									<p>${product.productName}</p>
+									<p>${product.productPrice}</p>
+									<a
+										href="${contextPath}/customer/addtocart/${product.productId}"><button
+											class="btn btn-primary">Add to Cart</button></a>
+								</div>
+							</a>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+		</c:forEach>
 
 
+	</div>
 </body>
 </html>

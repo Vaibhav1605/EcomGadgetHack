@@ -1,5 +1,7 @@
 package com.ecom.ecombackend.dao.impl;
 
+import java.util.ArrayList;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -56,6 +58,14 @@ public class CartItemsDaoImpl implements CartItemsDao {
 			return (CartItemsDao) sessionFactory.getCurrentSession().get(CartItems.class, id);
 		} catch (Exception e) {
 			return null;
+		}
+	}
+	
+	@Override
+	public ArrayList<CartItems> retrieveAllCartItems()
+	{
+		try{
+			return (ArrayList<CartItems> sessionFactory.getCurrentSession().createQuery("from CartItems",CartItems.class).getResultList());
 		}
 	}
 

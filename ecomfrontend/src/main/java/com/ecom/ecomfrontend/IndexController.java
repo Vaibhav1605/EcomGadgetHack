@@ -1,10 +1,6 @@
 package com.ecom.ecomfrontend;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ecom.ecombackend.dao.CartDao;
@@ -68,8 +63,7 @@ public class IndexController {
 		m.addAttribute("categoryList", categoryList);
 		return new ModelAndView("index");
 	}
-	
-	
+
 	@RequestMapping("/signUp")
 	public ModelAndView signUp(Model m) {
 		List<Product> productList = productDao.retreiveAllProducts();
@@ -82,15 +76,25 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "/signUpProcess", method = RequestMethod.POST)
-	public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer) {
+	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 		Cart cart = new Cart();
 		cart.setCustomer(customer);
 		customer.setCart(cart);
 		customerDao.addCustomer(customer);
 		cartDao.addCart(cart);
-		return new ModelAndView("login");
+		return "redirect:/login";
 	}
-	
+
+	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)
+	public ModelAndView productInfo(@PathVariable(value = "productId") Integer productId, Model m) {
+		m.addAttribute("product", productDao.getProduct(productId));
+
+		List<Product> productList = productDao.retreiveAllProducts();
+		m.addAttribute("productList", productList);
+
+		return new ModelAndView("productInfo");
+	}
+
 	@RequestMapping(value = "/login")
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error, Model m) {
 		System.out.println(error);
@@ -98,8 +102,7 @@ public class IndexController {
 			m.addAttribute("error", "Authentication Failed - Invalid credentials!");
 		}
 
-		m.addAttribute("title", "Login");
-		m.addAttribute("login", true);
+	
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
@@ -117,5 +120,11 @@ public class IndexController {
 		return new ModelAndView("signUp");
 	}
 
-	
+	/*@RequestMapping("/customer/addToCart/{productId}")
+	public String addToCart(@PathVariable("productId") int proid,Model m)
+	{
+		productDao.getProduct(proid);
+		return "redirect:/";
+	}*/
+
 }

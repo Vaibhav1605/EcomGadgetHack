@@ -47,6 +47,8 @@ public class AdminController {
 		m.addAttribute("categoryList", categoryList);
 		return new ModelAndView("product");
 	}
+	
+	
 
 	@RequestMapping(value = "/productProcess", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product") Product product,
@@ -144,15 +146,7 @@ public class AdminController {
 
 		return "product";
 	}
-	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)
-	public ModelAndView productInfo(@PathVariable(value = "productId") Integer productId, Model m) {
-		m.addAttribute("product", productDao.getProduct(productId));
-		/*
-		 * List<Product> productList = productDao.retreiveAllProducts();
-		 * m.addAttribute("productList", productList);
-		 */
-		return new ModelAndView("productInfo");
-	}
+	
 
 
 	@RequestMapping("/editCategory/{categoryId}")

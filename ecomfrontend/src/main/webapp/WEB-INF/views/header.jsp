@@ -41,6 +41,8 @@
 			
 			<security:authorize access="isAuthenticated()">
 			<ul class="nav navbar-nav navbar-right">
+			<li><a href="${contextPath}/customer/myCart"><span
+						class="glyphicon glyphicon-shopping-cart"></span>My Cart</a></li>
 				<li><a href="${contextPath}/logout"><span
 						class="glyphicon glyphicon-user"></span>Logout</a></li>
 				

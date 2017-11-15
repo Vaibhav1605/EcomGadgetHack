@@ -1,4 +1,4 @@
-<!DOCTYPE html">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -37,14 +37,14 @@
 						<label><input type="checkbox" name="remember">
 							Remember me</label>
 					</div>
-					<input type="submit" value="login"/>
-					
+					<input type="submit" value="login" />
+
 				</form>
 				<p align="center">
-						Don`t have an Account? <a
-							href="${pageContext.request.contextPath}/signUp">Create One.!
-						</a>
-					</p>
+					Don`t have an Account? <a
+						href="${pageContext.request.contextPath}/signUp">Create One.!
+					</a>
+				</p>
 			</div>
 		</div>
 	</div>
