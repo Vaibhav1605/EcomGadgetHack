@@ -1,5 +1,6 @@
 package com.ecom.ecomfrontend;
 
+import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import com.ecom.ecombackend.dao.CategoryDao;
 import com.ecom.ecombackend.dao.CustomerDao;
 import com.ecom.ecombackend.dao.ProductDao;
 import com.ecom.ecombackend.modclass.Cart;
+import com.ecom.ecombackend.modclass.CartItems;
 import com.ecom.ecombackend.modclass.Category;
 import com.ecom.ecombackend.modclass.Customer;
 import com.ecom.ecombackend.modclass.Product;
@@ -36,36 +38,67 @@ public class IndexController {
 	CartDao cartDao;
 
 	@RequestMapping("/")
-	public ModelAndView index(Model m) {
+	public ModelAndView index(Model m, Principal principal) {
 
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
 		m.addAttribute("categoryList", categoryList);
+		if (principal != null) {
+			Customer customer = customerDao.getCustomerDetails(principal.getName());
+			if (customer.getRole() != ("ROLE_ADMIN")) {
+				Cart cart = customer.getCart();
+				List<CartItems> cartItems = cart.getCartItems();
+
+				m.addAttribute("cartItems", cartItems);
+				m.addAttribute(cart);
+			}
+		}
 		return new ModelAndView("index");
 	}
 
 	@RequestMapping(value = "/categoryItems/{categoryName}", method = RequestMethod.GET)
-	public ModelAndView categoryInfo(@PathVariable(value = "categoryName") String categoryName, Model m) {
+	public ModelAndView categoryInfo(@PathVariable(value = "categoryName") String categoryName, Model m,
+			Principal principal) {
 		m.addAttribute("products", categoryDao.getretrieveAllProdutsOfCategory(categoryName));
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
 		m.addAttribute("categoryList", categoryList);
+		if (principal != null) {
+			Customer customer = customerDao.getCustomerDetails(principal.getName());
+			if (customer.getRole() != ("ROLE_ADMIN")) {
+				Cart cart = customer.getCart();
+				List<CartItems> cartItems = cart.getCartItems();
+
+				m.addAttribute("cartItems", cartItems);
+				m.addAttribute(cart);
+			}
+		}
 		return new ModelAndView("categoryItems");
 	}
 
 	@RequestMapping("/index")
-	public ModelAndView home(Model m) {
+	public ModelAndView home(Model m, Principal principal) {
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
 		m.addAttribute("categoryList", categoryList);
+		if (principal != null) {
+			Customer customer = customerDao.getCustomerDetails(principal.getName());
+			if (customer.getRole() != ("ROLE_ADMIN")) {
+				Cart cart = customer.getCart();
+				List<CartItems> cartItems = cart.getCartItems();
+
+				m.addAttribute("cartItems", cartItems);
+				m.addAttribute(cart);
+			}
+		}
 		return new ModelAndView("index");
 	}
 
 	@RequestMapping("/signUp")
-	public ModelAndView signUp(Model m) {
+	public ModelAndView signUp(Model m, Principal principal) {
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
@@ -86,11 +119,22 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)
-	public ModelAndView productInfo(@PathVariable(value = "productId") Integer productId, Model m) {
+	public ModelAndView productInfo(@PathVariable(value = "productId") Integer productId, Model m,
+			Principal principal) {
 		m.addAttribute("product", productDao.getProduct(productId));
 
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
+		if (principal != null) {
+			Customer customer = customerDao.getCustomerDetails(principal.getName());
+			if (customer.getRole() != ("ROLE_ADMIN")) {
+				Cart cart = customer.getCart();
+				List<CartItems> cartItems = cart.getCartItems();
+
+				m.addAttribute("cartItems", cartItems);
+				m.addAttribute(cart);
+			}
+		}
 
 		return new ModelAndView("productInfo");
 	}
@@ -102,7 +146,6 @@ public class IndexController {
 			m.addAttribute("error", "Authentication Failed - Invalid credentials!");
 		}
 
-	
 		List<Product> productList = productDao.retreiveAllProducts();
 		m.addAttribute("productList", productList);
 		List<Category> categoryList = categoryDao.retreiveAllCategories();
@@ -120,11 +163,10 @@ public class IndexController {
 		return new ModelAndView("signUp");
 	}
 
-	/*@RequestMapping("/customer/addToCart/{productId}")
-	public String addToCart(@PathVariable("productId") int proid,Model m)
-	{
-		productDao.getProduct(proid);
-		return "redirect:/";
-	}*/
+	/*
+	 * @RequestMapping("/customer/addToCart/{productId}") public String
+	 * addToCart(@PathVariable("productId") int proid,Model m) {
+	 * productDao.getProduct(proid); return "redirect:/"; }
+	 */
 
 }

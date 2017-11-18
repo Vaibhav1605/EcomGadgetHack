@@ -1,6 +1,6 @@
 package com.ecom.ecombackend.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -15,9 +15,9 @@ public interface CartItemsDao {
 
 	boolean updateCartItems(CartItems cartItems);
 
-	CartItemsDao getCartItems(Integer id);
+	CartItems getCartItems(int id);
 	
-	ArrayList<CartItems> retrieveAllCartItems();
+	List<CartItems> retrieveAllCartItems();
 	
 	CartItems getProduct(int productId,int cartId);
 

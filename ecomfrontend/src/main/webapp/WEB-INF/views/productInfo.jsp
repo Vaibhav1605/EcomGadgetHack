@@ -44,9 +44,13 @@
 				<br>
 				<h2>Product Desc: ${product.productDesc}</h2>
 				<h2>Product Cost: ${product.productPrice}</h2>
-				<button type="button" class="btn btn-primary">Add To Cart</button>
-				<button type="button" class="btn btn-warning">Buy Now</button>
-				
+				<form
+					action="${contextPath}/customer/addtocart/${product.productId}">
+					<input type="number" name="Quantity" placeholder="Select Quantity">
+					<button class="btn btn-primary">Add to Cart</button>
+				</form>
+				<!-- <button type="button" class="btn btn-primary">Add To Cart</button> -->
+				<!-- <button type="button" class="btn btn-warning">Buy Now</button> -->
 			</div>
 		</div>
 	</div>

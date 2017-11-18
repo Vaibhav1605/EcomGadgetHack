@@ -19,59 +19,40 @@ public class Cart {
 	private int cartQuantity;
 	private double totalPrice;
 
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+	public int getCartQuantity() {
+		return cartQuantity;
+	}
+	public void setCartQuantity(int cartQuantity) {
+		this.cartQuantity = cartQuantity;
+	}
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public List<CartItems> getCartItems() {
+		return cartItems;
+	}
+	public void setCartItems(List<CartItems> cartItems) {
+		this.cartItems = cartItems;
+	}
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	@OneToMany(fetch=FetchType.EAGER, mappedBy="cart")
 	private List<CartItems> cartItems;
 	@OneToOne()
 	private Customer customer;
 
-	public List<CartItems> getCartItems() {
-		return cartItems;
-	}
-
-	public void setCartItems(List<CartItems> cartItems) {
-		this.cartItems = cartItems;
-	}
-
-	public Integer getCartId() {
-		return cartId;
-	}
-
-	public void setCartId(Integer cartId) {
-		this.cartId = cartId;
-	}
-
-	public Integer getCartQuantity() {
-		return cartQuantity;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	public void setCartId(int cartId) {
-		this.cartId = cartId;
-	}
-
-	public void setCartQuantity(int cartQuantity) {
-		this.cartQuantity = cartQuantity;
-	}
-
-	public void setCartQuantity(Integer cartQuantity) {
-		this.cartQuantity = cartQuantity;
-	}
-
-
-
-	public double getTotalPrice() {
-		return totalPrice;
-	}
-
-	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-
+	
 }

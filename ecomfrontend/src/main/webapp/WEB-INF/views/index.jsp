@@ -54,10 +54,10 @@
 
 
 				<div class="item">
-					<img src="${carousel_images}/DSLR.jpg" alt="DSLR"
+					<img src="${carousel_images}/Shutter.jpg" alt="DSLR"
 						style="width: 100%; height: 500px; margin: 0 auto;">
 					<div class="carousel-caption">
-						<h3>DSLR Cameras</h3>
+						<h3>Cameras</h3>
 						<p>Click Ultimate Pictures</p>
 					</div>
 				</div>
@@ -91,17 +91,18 @@
 					<div class="col-md-4">
 						<div class="img-responsive">
 							<a href="${contextPath}/productInfo/${product.productId}.jpg"
-								target="_blank"> <img
+								target="_self"> <img
 								src="${images}/${product.productName}.jpg" alt="productImage"
-								style="width: 150px; height: 150px;">
-								<div class="caption">
-									<p>${product.productName}</p>
-									<p>${product.productPrice}</p>
-									<a
+								style="width: 150px; height: 150px;"></a>
+							<div class="caption">
+								<p>${product.productName}</p>
+								<p>${product.productDesc}</p>
+								<p>${product.productPrice}</p>
+								<%-- <a
 										href="${contextPath}/customer/addtocart/${product.productId}"><button
-											class="btn btn-primary">Add to Cart</button></a>
-								</div>
-							</a>
+											class="btn btn-primary">Add to Cart</button></a> --%>
+							</div>
+
 						</div>
 					</div>
 				</c:forEach>

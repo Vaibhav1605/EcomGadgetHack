@@ -27,7 +27,7 @@
 	<style>
 .img-thumbnail {
 	height: 300px;
-	width: 400px;
+	width: 300px;
 }
 </style>
 	<div class="container" style="margin-top: 100px;">
