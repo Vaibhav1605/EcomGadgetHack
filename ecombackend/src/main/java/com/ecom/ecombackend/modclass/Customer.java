@@ -1,11 +1,19 @@
 package com.ecom.ecombackend.modclass;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 
@@ -13,17 +21,47 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int custId;
+
+	@NotBlank(message = "First Name should not be Blank")
+	@NotNull(message = "First Name should not be Empty")
+	@Pattern(regexp = "[a-z,A-Z]{3,}", message = "It should contain only Alphabet")
 	private String firstName;
+
+	@NotBlank(message = "Last Name should not be Blank")
+	@NotNull(message = "Last Name should not be Empty")
+	@Pattern(regexp = "[a-z,A-Z]{3,}", message = "It should contain only Alphabet")
 	private String lastName;
+
+	@Email
+	@NotNull(message = "Email should not be Epmty")
 	private String email;
+
+	@Pattern(regexp = "[0-9]{10}", message = "Must contain 10 digits")
 	private String mobileNumber;
+
+	@NotBlank(message = "Enter a Password")
+	@NotNull(message = "Enter a Password")
+	@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,})", message = "Password should contain atleast one Capital Letter,one Digit,one Special Charecter")
 	private String password;
+
 	@Transient
 	private String confirmPassword;
+
 	private boolean is_Active;
 	private String role = "ROLE_CUSTOMER";
 	@OneToOne(mappedBy = "customer")
 	private Cart cart;
+
+	@OneToMany(mappedBy = "customer")
+	private List<Orders> orders;
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
 
 	public Cart getCart() {
 		return cart;
@@ -33,27 +71,27 @@ public class Customer {
 		this.cart = cart;
 	}
 
-	public int getcustId() {
+	public int getCustId() {
 		return custId;
 	}
 
-	public void setcustId(int custId) {
+	public void setCustId(int custId) {
 		this.custId = custId;
 	}
 
-	public String getfirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setfirstName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-	public String getlastName() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	public void setlastName(String lastName) {
+	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
@@ -73,19 +111,19 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setpassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getconfirmPassword() {
+	public String getConfirmPassword() {
 		return confirmPassword;
 	}
 
-	public void setconfrimPassword(String confirmPassword) {
+	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
 

@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -15,9 +18,21 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
+	
+	@NotNull(message="Product Name should not be Empty")
+	@NotBlank(message="Product Name should not be Blank")
 	private String productName;
+	
+	@NotNull(message="Product Desc should not be Empty")
+	@NotBlank(message="Product Desc should not be Blank")
 	private String productDesc;
+	
+	@NotNull(message="Product Price should not be Empty")
+	@NotBlank(message="Product Price should not be Blank")
 	private double productPrice;
+	
+	@NotNull(message="Product Stock should not be Empty")
+	@NotBlank(message="Product Stock should not be Blank")
 	private double productStock;
 
 	@ManyToOne

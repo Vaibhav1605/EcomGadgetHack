@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
 @Entity
 public class CartItems {
 
@@ -17,7 +18,7 @@ public class CartItems {
 	private int cartItemsQuantity;
 	@ManyToOne
 	private Cart cart;
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	private Product product;
 
 	public int getCartItemsId() {

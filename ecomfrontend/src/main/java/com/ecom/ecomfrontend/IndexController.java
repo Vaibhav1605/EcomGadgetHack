@@ -2,9 +2,13 @@ package com.ecom.ecomfrontend;
 
 import java.security.Principal;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -109,13 +113,26 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "/signUpProcess", method = RequestMethod.POST)
-	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
-		Cart cart = new Cart();
-		cart.setCustomer(customer);
-		customer.setCart(cart);
-		customerDao.addCustomer(customer);
-		cartDao.addCart(cart);
-		return "redirect:/login";
+	public String saveCustomer(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model m) {
+		if (result.hasErrors()) {
+			m.addAttribute(customer);
+			return "signUp";
+		} else {
+			
+			System.out.println(customer.getConfirmPassword() + "   "+customer.getPassword());
+			if (!(customer.getPassword().equals(customer.getConfirmPassword()))) {
+				m.addAttribute("passerror","password and confirm password should be same");
+				m.addAttribute(customer);
+				return "signUp";
+			} else {
+				Cart cart = new Cart();
+				cart.setCustomer(customer);
+				customer.setCart(cart);
+				customerDao.addCustomer(customer);
+				cartDao.addCart(cart);
+				return "redirect:/login";
+			}
+		}
 	}
 
 	@RequestMapping(value = "/productInfo/{productId}", method = RequestMethod.GET)

@@ -33,12 +33,14 @@
 						<form:input type="text" path="firstName" class="form-control"
 							id="firstName" placeholder="Enter name" name="firstName"
 							required="required" />
+						<form:errors path="firstName" style="color:red"/>
 					</div>
 					<div class="form-group">
 						<label for="lastName">Last Name:</label>
 						<form:input type="text" path="lastName" class="form-control"
 							id="lastName" placeholder="Enter last name" name="lastName"
 							required="required" />
+						<form:errors path="lastName" style="color:red"/>
 					</div>
 
 					<div class="form-group">
@@ -46,18 +48,21 @@
 						<form:input type="tel" path="mobileNumber" class="form-control"
 							id="mobileNumber" placeholder="Enter Your Mobile Number"
 							name="mobileNumber" />
+						<form:errors path="mobileNumber" style="color:red"/>
 					</div>
 					<div class="form-group">
 						<label for="email">Email:</label>
 						<form:input type="email" path="email" class="form-control"
 							id="email" placeholder="Enter your Email Id" name="email"
 							required="required" />
+						<form:errors path="email" style="color:red"/>
 					</div>
 					<div class="form-group">
 						<label for="password">Password:</label>
 						<form:input type="password" path="password" class="form-control"
 							id="password" placeholder="Atleast 8 Charecters" name="password"
 							required="required" />
+						<form:errors path="password" style="color:red" />
 					</div>
 					<form:input path="is_Active" value="TRUE" hidden="true" />
 					<div class="form-group">
@@ -66,6 +71,7 @@
 							class="form-control" id="confirmPassword"
 							placeholder="Retype password" name="confirmPassword"
 							required="required" />
+						<div>${passerror}</div>
 					</div>
 					<div class="checkbox">
 						<label><input type="checkbox" name="I Agree T&C"

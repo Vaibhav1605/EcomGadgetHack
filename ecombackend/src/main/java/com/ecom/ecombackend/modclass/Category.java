@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Category {
@@ -17,7 +19,13 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int categoryId;
+	
+	@NotNull(message="Category Name should not be Empty")
+	@NotBlank(message="Category Name should not be Blank")
 	private String categoryName;
+	
+	@NotNull(message="Category Desc should not be Empty")
+	@NotBlank(message="Category Desc should not be Blank")
 	private String categoryDesc;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
