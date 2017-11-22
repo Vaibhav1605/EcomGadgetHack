@@ -28,11 +28,9 @@ public class Product {
 	private String productDesc;
 	
 	@NotNull(message="Product Price should not be Empty")
-	@NotBlank(message="Product Price should not be Blank")
 	private double productPrice;
 	
 	@NotNull(message="Product Stock should not be Empty")
-	@NotBlank(message="Product Stock should not be Blank")
 	private double productStock;
 
 	@ManyToOne

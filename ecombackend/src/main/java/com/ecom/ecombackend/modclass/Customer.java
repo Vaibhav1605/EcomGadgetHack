@@ -3,7 +3,6 @@ package com.ecom.ecombackend.modclass;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,6 +53,17 @@ public class Customer {
 
 	@OneToMany(mappedBy = "customer")
 	private List<Orders> orders;
+
+	@OneToOne(mappedBy = "customer")
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public List<Orders> getOrders() {
 		return orders;

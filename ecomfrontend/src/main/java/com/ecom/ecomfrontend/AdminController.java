@@ -94,7 +94,7 @@ public class AdminController {
 		 * m.addAttribute("productLists",productList); Product product1=new
 		 * Product(); m.addAttribute(product1);
 		 */
-		return "redirect:/admin/product";
+		return "redirect:/admin/product/";
 	}
 
 

@@ -38,7 +38,7 @@
 					<div class="col-md-6" style="text-align: center">
 
 
-						<a"${contextPath}/product/${product.productName}"><img
+						<a href="${contextPath}/productInfo/${product.productId}"><img
 							src="${image}/${product.productName}.jpg" class="img-thumbnail"></a>
 						<h3>Description: ${product.productDesc}</h3>
 						<h3>Cost: ${product.productPrice}</h3>

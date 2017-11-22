@@ -63,11 +63,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
-	@Override
-	public boolean getCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return true;
-	}
+	
 
 	public List<Customer> retreiveAllCustomers() {
 

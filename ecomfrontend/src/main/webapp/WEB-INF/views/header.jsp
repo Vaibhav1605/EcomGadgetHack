@@ -1,4 +1,6 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <%@taglib uri="http://www.springframework.org/security/tags"
 	prefix="security"%>
 
@@ -13,7 +15,7 @@
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">GadgetHack</a>
+					<a class="navbar-brand" href="${contextPath}">GadgetHack</a>
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="${contextPath}">Home</a></li>
@@ -79,96 +81,80 @@
 					<div class="modal-body">
 						<div class="container">
 							<div class="table-responsive">
+								<c:if test="${fn:length(cartItems)==0}">
+									<h1 style="text-align: center;">Your Cart Is Empty</h1>
+									<a href="${pageContext.request.contextPath}/">
+										<center>
 
-								<table class="table" style="width: 100%;">
+											<button type="button" class="btn btn-primary">Continue
+												Shopping</button>
 
-									<tr>
-										<th>Product</th>
-										<th>Price of Product</th>
-										<th>Quantity</th>
-										<th>Total Price</th>
-										<th>Edit / Delete from Cart</th>
-									</tr>
-									<c:forEach items="${cartItems}" var="cartItem">
+										</center>
+									</a>
+								</c:if>
+								<c:if test="${fn:length(cartItems)!=0}">
+
+
+									<table class="table" style="width: 100%;">
 
 										<tr>
+											<th>Product</th>
+											<th>Price of Product</th>
+											<th>Quantity</th>
+											<th>Total Price</th>
+											<th>Edit / Delete from Cart</th>
+										</tr>
+										<c:forEach items="${cartItems}" var="cartItem">
 
-											<td>${cartItem.product.productName}</td>
-											<td>${cartItem.product.productPrice}</td>
-											<form action="${contextPath}/customer/editCartItem/${cartItem.cartItemsId}" method="POST">
-											<td><input type="number" name="Quantity"
-												value="${cartItem.cartItemsQuantity}" /></td>
-											<td>${cartItem.cartItemsPrice}</td>
+											<tr>
 
-											<td><input type="submit" class="btn btn-primary" value="Edit">
-												</form> <a
-												href="${contextPath}/customer/deleteCartItem/${cartItem.cartItemsId}"><button
+												<td>${cartItem.product.productName}</td>
+												<td>${cartItem.product.productPrice}</td>
+												<form
+													action="${contextPath}/customer/editCartItem/${cartItem.cartItemsId}"
+													method="POST">
+													<td><input type="number" name="Quantity" min="0"
+														value="${cartItem.cartItemsQuantity}" /></td>
+													<td>${cartItem.cartItemsPrice}</td>
+
+													<td><input type="submit" class="btn btn-primary"
+														value="Edit">
+												</form>
+												<a
+													href="${contextPath}/customer/deleteCartItem/${cartItem.cartItemsId}"><button
 														type="button" class="btn btn-danger">Delete Item</button></a>
-											</td>
+												</td>
 
-										</tr>
+											</tr>
 
-									</c:forEach>
-
-									<tr>
-										<td colspan="3">Total Price of Cart</td>
-										<td>${cart.totalPrice}</td>
-										<td></td>
-									</tr>
-
-
-								</table>
-
-							</div>
-
-							<%-- <div class="table-bordered">
-								<table border="2" align="center" class="table table-inverse">
-								
-
-									<tr>
-										<td>Product</tdh
-										<td>Price of Product</td>
-										<td>Quantity</td>
-										<td>Total Price</td>
-										<td>Remove from Cart</td>
-									</tr>
-									<c:forEach items="${cartItems}" var="cartItem">
+										</c:forEach>
 
 										<tr>
-											<td>${cartItem.product.productName}</td>
-											<td>${cartItem.product.productPrice}</td>
-											<td>${cartItem.cartItemsQuantity}</td>
-											<td>${cartItem.cartItemsPrice}</td>
-
-											<td><a
-												href="${contextPath}/customer/deletCartItems/${cartItem.cartItemsId}"><button
-														type="button" class="btn btn-danger">Delete Item</button></a></td>
-
+											<td colspan="3">Total Price of Cart</td>
+											<td>${cart.totalPrice}</td>
+											<td></td>
 										</tr>
 
-									</c:forEach>
 
-									<tr>
-										<td colspan="3">Total Price of Cart</td>
-										<td>${cart.totalPrice}</td>
-										<td></td>
-									</tr>
-									
-								</table>
+									</table>
+								</c:if>
 							</div>
- --%>
+
+
 						</div>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-warning" data-dismiss="modal">Buy
-							Now</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-					</div>
+					<c:if test="${fn:length(cartItems)!=0}">
+						<div class="modal-footer">
+							<a href="${contextPath}/customer/checkout/${cart.cartId}">
+								<button type="button" class="btn btn-warning">Buy Now</button>
+							</a>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+						</div>
+					</c:if>
 				</div>
 
 			</div>
 		</div>
 
 	</div>
-
-	</div>
+</body>

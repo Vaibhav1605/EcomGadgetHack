@@ -7,9 +7,10 @@ import com.ecom.ecombackend.modclass.Customer;
 
 @Component
 public interface CustomerDao {
+	
 	public boolean deleteCustomer(Customer customer);
 
-	public boolean getCustomer(Customer customer);
+	//public boolean getCustomer(Customer customer);
 
 	public boolean addCustomer(Customer customer);
 
