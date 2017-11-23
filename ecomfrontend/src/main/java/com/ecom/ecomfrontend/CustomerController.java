@@ -210,34 +210,35 @@ public class CustomerController {
 			orderedItemsDao.addOrderedItems(orderedItems);
 		}
 		m.addAttribute("orders", orders);
+		m.addAttribute("cart", cart);
 		return "order";
 	}
 
-	@RequestMapping("/address/{cartId}")
-	public String address(@PathVariable("cartId") int cartId, Principal principal, Model m) {
-		Customer customer = customerDao.getCustomerDetails(principal.getName());
-		if (customer.getAddress() != null) {
-			m.addAttribute("address", customer.getAddress());
-		} else {
-			m.addAttribute("address", new Address());
-		}
-
-		return "address";
-	}
-
-	@RequestMapping("/addressProcess")
-	public String addAddress(@ModelAttribute("address") Address address, Principal principal, Model m) {
-
-		Customer customer = customerDao.getCustomerDetails(principal.getName());
-		
-		address.setCustomer(customer);
-		addressDao.addAddress(address);
-		customer.setAddress(address);
-		customerDao.updateCustomer(customer);
-		
-		
-		Cart cart = customer.getCart();
-
-		return "redirect:/customer/order/" + cart.getCartId();
-	}
+	/*
+	 * @RequestMapping("/address/{cartId}") public String
+	 * address(@PathVariable("cartId") int cartId, Principal principal, Model m)
+	 * { Customer customer =
+	 * customerDao.getCustomerDetails(principal.getName()); if
+	 * (customer.getAddress() != null) { m.addAttribute("address",
+	 * customer.getAddress()); } else { m.addAttribute("address", new
+	 * Address()); }
+	 * 
+	 * return "address"; }
+	 */
+	/*
+	 * @RequestMapping("/addressProcess") public String
+	 * addAddress(@ModelAttribute("address") Address address, Principal
+	 * principal, Model m) {
+	 * 
+	 * Customer customer = customerDao.getCustomerDetails(principal.getName());
+	 * 
+	 * address.setCustomer(customer); addressDao.addAddress(address);
+	 * customer.setAddress(address); customerDao.updateCustomer(customer);
+	 * 
+	 * 
+	 * 
+	 * Cart cart = customer.getCart();
+	 * 
+	 * return "redirect:/customer/order/" + cart.getCartId(); }
+	 */
 }

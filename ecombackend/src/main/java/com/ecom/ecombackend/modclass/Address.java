@@ -22,10 +22,10 @@ public class Address {
 	private String add_State;
 
 	@NotBlank(message = "Enter Pincode")
-	@Pattern(regexp = "[0-9]{,6}", message = "Enter your 6 digit Pincode")
+	@Pattern(regexp = "[0-9]{0,6}", message = "Enter your 6 digit Pincode")
 	private String add_Pincode;
 
-	@OneToOne()
+	@OneToOne
 	private Customer customer;
 
 	public int getAdd_Id() {

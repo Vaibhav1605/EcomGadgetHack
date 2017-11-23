@@ -31,7 +31,7 @@
 				<div class="col-sm-4">
 					<h2>Shipping Address</h2>
 					<div class="form-group">
-					<form:input path="add_Id" hidden="true"/>
+						<form:input path="add_Id" hidden="true" />
 						<label for="add_Hno">House No.:</label>
 						<form:input type="number" path="add_Hno" class="form-control"
 							id="add_Hno" placeholder="Enter House No" name="add_Hno"
@@ -73,5 +73,6 @@
 			</div>
 		</div>
 	</form:form>
+
 </body>
 </html>

@@ -13,6 +13,8 @@ public interface CustomerDao {
 	//public boolean getCustomer(Customer customer);
 
 	public boolean addCustomer(Customer customer);
+	
+	
 
 	public Customer getCustomer(int id);
 

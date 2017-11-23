@@ -14,12 +14,20 @@
 
 <meta http-equiv="Content-Type" content="text/html;">
 <title>GadgetHack</title>
+
+<style>
+.container {
+	margin-bottom: 35px;
+}
+</style>
 </head>
 <body>
+	
+
+	<div class="container">
 	<jsp:include page="header.jsp"></jsp:include>
 	<br>
 	<br>
-	<div class="container">
 		<h1 style="text-align: center;">Invoice</h1>
 		<table class="table table-bordered">
 			<thead>
@@ -57,5 +65,6 @@
 				Shopping</button>
 		</center>
 	</a>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

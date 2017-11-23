@@ -12,6 +12,8 @@ public interface AddressDao {
 	public boolean addAddress(Address address);
 
 	public boolean deleteAddress(Address address);
+	
+	public Address getAddressOfCustomer(Integer id);
 
 	public boolean updateAddress(Address address);
 

@@ -1,10 +1,10 @@
 package com.ecom.ecombackend.dao.impl;
 
-import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ecom.ecombackend.dao.AddressDao;
 import com.ecom.ecombackend.modclass.Address;
@@ -57,6 +57,19 @@ public class AddressDaoImpl implements AddressDao {
 
 		} catch (Exception e) {
 			return false;
+		}
+	}
+
+	@Override
+	public Address getAddressOfCustomer(Integer id) {
+		try{
+			return sessionFactory.getCurrentSession().createQuery("From Address where CUSTOMER_CUSTID=:custid",Address.class)
+			.setParameter("custid", id)
+			.getSingleResult();
+		}catch(Exception e)
+		{
+			System.out.println(e);
+			return null;
 		}
 	}
 

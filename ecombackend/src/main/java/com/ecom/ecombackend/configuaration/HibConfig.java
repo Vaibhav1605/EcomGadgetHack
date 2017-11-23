@@ -39,7 +39,7 @@ public class HibConfig {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		hibernateProperties.put("hibernate_format_sql", "true");
-		hibernateProperties.put("hibernate.show_sql", "org.hibernate.SQL");
+		hibernateProperties.put("hibernate.show_sql", "true");
 		hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
 		return hibernateProperties;
 	}

@@ -118,10 +118,10 @@ public class IndexController {
 			m.addAttribute(customer);
 			return "signUp";
 		} else {
-			
-			System.out.println(customer.getConfirmPassword() + "   "+customer.getPassword());
+
+			System.out.println(customer.getConfirmPassword() + "   " + customer.getPassword());
 			if (!(customer.getPassword().equals(customer.getConfirmPassword()))) {
-				m.addAttribute("passerror","password and confirm password should be same");
+				m.addAttribute("passerror", "password and confirm password should be same");
 				m.addAttribute(customer);
 				return "signUp";
 			} else {

@@ -49,10 +49,12 @@
 					</ul>
 				</security:authorize>
 
-				<security:authorize access="!hasAuthority('ROLE_ADMIN')">
+				<security:authorize access="hasAuthority('ROLE_CUSTOMER')">
 					<ul class="nav navbar-nav navbar-right">
 						<li><button type="button" class="btn btn-info btn-lg"
-								data-toggle="modal" data-target="#myModal">My Cart</button></li>
+								data-toggle="modal" data-target="#myModal">My Cart</button>
+							<span
+							style="border-radius: 10px; background-color: red; color: white; padding: 8px; margin-right: 2px">${cart.cartQuantity}</span></li>
 					</ul>
 				</security:authorize>
 
@@ -76,6 +78,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
+
 						<h4 class="modal-title">My Cart</h4>
 					</div>
 					<div class="modal-body">

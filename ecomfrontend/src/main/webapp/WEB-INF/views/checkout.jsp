@@ -14,6 +14,12 @@
 
 <meta http-equiv="Content-Type" content="text/html;">
 <title>GadgetHack</title>
+
+<style>
+.container {
+	margin-bottom: 35px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -22,11 +28,15 @@
 	<br>
 	<br>
 	<br>
+
 	<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 	<c:set var="images" value="${contextPath}/resources/images" />
 
 	<div class="container">
+		<h2>Hello ${customer.firstName},</h2>
+		<br>
+		<br>
 
 		<div class="table-responsive">
 			<table border="2" align="center" class="table table-inverse"
@@ -62,7 +72,7 @@
 
 				<a href="${contextPath}/">
 					<button type="button" class="btn btn-danger">Cancel</button>
-				</a> <a href="${contextPath}/customer/address/${cart.cartId}">
+				</a> <a href="${contextPath}/customer/order/${cart.cartId}">
 					<button type="button" class="btn btn-primary">Confirm
 						Order</button>
 				</a>
@@ -72,4 +82,5 @@
 	</div>
 
 </body>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>
