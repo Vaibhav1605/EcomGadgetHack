@@ -19,13 +19,21 @@ public class Orders {
 	private double orderTotalPrice;
 
 	@ManyToOne
-	private Customer customer;
+	private Cart cart;
 
 	@OneToMany(mappedBy = "orders")
 	private List<OrderedItems> orderedItems;
 
 	public int getOrdersId() {
 		return ordersId;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	public void setOrdersId(int ordersId) {
@@ -54,14 +62,6 @@ public class Orders {
 
 	public void setOrderTotalPrice(double orderTotalPrice) {
 		this.orderTotalPrice = orderTotalPrice;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
 	}
 
 }

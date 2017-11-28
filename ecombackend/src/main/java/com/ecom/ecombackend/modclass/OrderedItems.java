@@ -23,6 +23,8 @@ public class OrderedItems {
 	private Product product;
 
 	private double unitPrice;
+	
+	
 
 	public int getOrderedItemsId() {
 		return orderedItemsId;

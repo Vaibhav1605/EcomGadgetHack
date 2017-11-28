@@ -53,26 +53,15 @@ public class Customer {
 	@OneToOne(mappedBy = "customer")
 	private Cart cart;
 
-	@OneToMany(mappedBy = "customer")
-	private List<Orders> orders;
+	@OneToOne(mappedBy = "customer")
+	private Address address;
 
-	/*@OneToOne(mappedBy = "customer")
-	private Address address;*/
-
-	/*public Address getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-*/
-	public List<Orders> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Orders> orders) {
-		this.orders = orders;
 	}
 
 	public Cart getCart() {

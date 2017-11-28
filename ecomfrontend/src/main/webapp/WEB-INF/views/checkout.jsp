@@ -72,7 +72,7 @@
 
 				<a href="${contextPath}/">
 					<button type="button" class="btn btn-danger">Cancel</button>
-				</a> <a href="${contextPath}/customer/order/${cart.cartId}">
+				</a> <a href="${contextPath}/customer/address/${cart.cartId}">
 					<button type="button" class="btn btn-primary">Confirm
 						Order</button>
 				</a>

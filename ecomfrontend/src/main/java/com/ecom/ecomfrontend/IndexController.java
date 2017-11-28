@@ -71,7 +71,7 @@ public class IndexController {
 		m.addAttribute("categoryList", categoryList);
 		if (principal != null) {
 			Customer customer = customerDao.getCustomerDetails(principal.getName());
-			if (customer.getRole() != ("ROLE_ADMIN")) {
+			if (!customer.getRole().equals("ROLE_ADMIN")) {
 				Cart cart = customer.getCart();
 				List<CartItems> cartItems = cart.getCartItems();
 
